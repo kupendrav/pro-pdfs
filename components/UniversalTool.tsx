@@ -466,11 +466,11 @@ const UniversalTool: React.FC<UniversalToolProps> = ({ toolId, onClose }) => {
   };
 
   return (
-    <div className="fixed inset-0 z-60 overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+    <div className="fixed inset-0 z-[60] overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
       <div className="flex items-center justify-center min-h-screen px-4 pb-20 text-center sm:p-0">
-        <div className="fixed inset-0 bg-gray-900 bg-opacity-75 transition-opacity" onClick={onClose} />
+        <div className="fixed inset-0 bg-gray-900/75 transition-opacity" onClick={onClose} />
 
-        <div className="bg-white rounded-xl text-left overflow-hidden shadow-2xl transform transition-all sm:my-8 sm:max-w-5xl sm:w-full sm:mx-auto h-[85vh] flex flex-col">
+        <div className="relative z-10 bg-white rounded-xl text-left overflow-hidden shadow-2xl transform transition-all sm:my-8 sm:max-w-5xl sm:w-full sm:mx-auto h-[85vh] flex flex-col">
           
           {/* Header */}
           <div className="bg-white px-6 py-4 border-b border-gray-200 flex justify-between items-center shrink-0">

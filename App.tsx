@@ -3,7 +3,6 @@ import Navbar from './components/Navbar';
 import ToolCard from './components/ToolCard';
 import OCRDemo from './components/OCRDemo';
 import UniversalTool from './components/UniversalTool';
-import LoginModal from './components/LoginModal';
 import { TOOLS } from './constants';
 import { ArrowRight, Star, ShieldCheck, Zap } from 'lucide-react';
 
@@ -13,8 +12,6 @@ interface AppProps {
 
 function App({ onReady }: AppProps) {
   const [activeToolId, setActiveToolId] = useState<string | null>(null);
-  const [user, setUser] = useState<any>(null);
-  const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
 
   useEffect(() => {
     // Remove loading screen once the app has fully rendered
@@ -36,9 +33,6 @@ function App({ onReady }: AppProps) {
     <div className="min-h-screen bg-gray-50 flex flex-col font-sans">
       <Navbar 
         onNavigate={() => window.scrollTo({ top: 0, behavior: 'smooth' })} 
-        user={user}
-        onLoginClick={() => setIsLoginModalOpen(true)}
-        onLogoutClick={() => setUser(null)}
         onToolClick={handleToolClick}
       />
 
@@ -128,52 +122,26 @@ function App({ onReady }: AppProps) {
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-gray-400 py-12 border-t border-gray-800">
-        <div className="max-w-7xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-8 mb-8">
-            <div>
-                <h4 className="text-white font-bold mb-4">Internal</h4>
-                <ul className="space-y-2 text-sm">
-                    <li><a href="#" className="hover:text-white">About us</a></li>
-                    <li><a href="#" className="hover:text-white">Pricing</a></li>
-                    <li><a href="#" className="hover:text-white">Contact</a></li>
-                </ul>
+      <footer className="bg-gray-900 text-gray-400 py-8 border-t border-gray-800">
+        <div className="max-w-7xl mx-auto px-4 text-center">
+            <div className="flex items-center justify-center gap-2 mb-4">
+              <div className="bg-red-600 p-1.5 rounded-lg">
+                <svg className="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
+              </div>
+              <span className="text-xl font-bold text-white">K-PDF's</span>
             </div>
-            <div>
-                <h4 className="text-white font-bold mb-4">Services</h4>
-                <ul className="space-y-2 text-sm">
-                    <li><a href="#" className="hover:text-white">API</a></li>
-                    <li><a href="#" className="hover:text-white">Desktop App</a></li>
-                    <li><a href="#" className="hover:text-white">Mobile App</a></li>
-                </ul>
-            </div>
-            <div>
-                <h4 className="text-white font-bold mb-4">Legal</h4>
-                <ul className="space-y-2 text-sm">
-                    <li><a href="#" className="hover:text-white">Terms</a></li>
-                    <li><a href="#" className="hover:text-white">Privacy</a></li>
-                    <li><a href="#" className="hover:text-white">Cookies</a></li>
-                </ul>
-            </div>
-             <div>
-                <h4 className="text-white font-bold mb-4">K-PDF's</h4>
-                <p className="text-xs leading-relaxed">
-                    © 2024 K-PDF's. All rights reserved. Your files are safe with us.
-                </p>
-            </div>
+            <p className="text-sm text-gray-500 mb-2">
+                Your all-in-one PDF toolkit. Fast, secure, and free.
+            </p>
+            <p className="text-xs text-gray-600">
+                © 2024 K-PDF's. All rights reserved. Your files are processed locally and never stored.
+            </p>
         </div>
       </footer>
 
-      {/* Modals */}
-      {isLoginModalOpen && (
-        <LoginModal 
-            onClose={() => setIsLoginModalOpen(false)} 
-            onLoginSuccess={(userData) => {
-                setUser(userData);
-                setIsLoginModalOpen(false);
-            }}
-        />
-      )}
-
+      {/* Tool Modals */}
       {activeToolId && (
         ['ocr-pdf', 'scan-pdf'].includes(activeToolId) 
             ? <OCRDemo onClose={closeTool} />
