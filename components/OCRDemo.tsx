@@ -1,6 +1,5 @@
 import React, { useState, useRef } from 'react';
 import { Upload, X, FileText, Loader2, Search, Wand2, AlertCircle } from 'lucide-react';
-import { analyzeDocumentImage } from '../services/geminiService';
 
 interface OCRDemoProps {
   onClose: () => void;
@@ -69,14 +68,17 @@ const OCRDemo: React.FC<OCRDemoProps> = ({ onClose }) => {
     setLoading(true);
     setError(null);
     try {
+      // Dynamically import to prevent blocking app load
+      const { analyzeDocumentImage } = await import('../services/geminiService');
+      
       // Remove data URL prefix for API
       const base64Data = preview.split(',')[1];
       const mimeType = file.type;
       
       const text = await analyzeDocumentImage(base64Data, mimeType);
       setResult(text);
-    } catch (err) {
-      setError("Error processing document. Please check your API key and try again.");
+    } catch (err: any) {
+      setError(err?.message || "Error processing document. Please check your API key and try again.");
     } finally {
       setLoading(false);
     }

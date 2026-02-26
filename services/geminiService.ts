@@ -1,8 +1,19 @@
 import { GoogleGenAI } from "@google/genai";
 
-// Initialize the client
+// Initialize the client lazily to prevent crashes when API key is missing
 // NOTE: In a production app, handle API keys securely (e.g., via a backend proxy).
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY || '' });
+let ai: GoogleGenAI | null = null;
+
+const getAI = () => {
+  if (!ai) {
+    const apiKey = process.env.API_KEY || '';
+    if (!apiKey) {
+      throw new Error('API key is not configured. Please set GEMINI_API_KEY in your environment.');
+    }
+    ai = new GoogleGenAI({ apiKey });
+  }
+  return ai;
+};
 
 /**
  * Performs OCR and analysis on an image (simulating a scanned PDF page).
@@ -11,8 +22,9 @@ const ai = new GoogleGenAI({ apiKey: process.env.API_KEY || '' });
 export const analyzeDocumentImage = async (base64Image: string, mimeType: string): Promise<string> => {
   try {
     const modelId = 'gemini-2.5-flash';
+    const client = getAI();
 
-    const response = await ai.models.generateContent({
+    const response = await client.models.generateContent({
       model: modelId,
       contents: {
         parts: [
