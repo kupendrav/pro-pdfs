@@ -587,6 +587,12 @@ export const useStore = create<Store>()(
 
 // ── Selectors / helpers ────────────────────────────────────────────────────────
 
+// Dev-only handle used by the automated acceptance tests (scripts/verify.mjs).
+// Stripped from production builds by Vite's define replacement.
+if (import.meta.env.DEV) {
+  (window as unknown as { __jhcc?: unknown }).__jhcc = { useStore };
+}
+
 export function tasksForDate(state: AppState, date: string): Task[] {
   return sortTasks(Object.values(state.tasks).filter((t) => t.date === date));
 }

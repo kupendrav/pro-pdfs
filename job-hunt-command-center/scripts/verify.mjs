@@ -89,6 +89,19 @@ await page.click('button[aria-label="End focus session"]');
 await sleep(200);
 ok('focus session ends cleanly');
 
+// 8b. Focus countdown COMPLETION: dialog + accrual (2s countdown via dev hook)
+await page.evaluate(() => {
+  const { useStore } = window.__jhcc;
+  const st = useStore.getState();
+  const t = Object.values(st.tasks).find((x) => x.category === 'aiml');
+  st.startFocus({ taskId: t.id, label: 'Attention basics', presetSec: 2 });
+  useStore.setState({ ui: { ...st.ui, focusOverlay: true } });
+});
+await page.waitForSelector('text=FOCUS SESSION COMPLETE', { timeout: 15000 }).catch(() => {});
+assert.ok(await page.locator('text=Focus session complete').first().isVisible().catch(() => false), 'completion dialog did not appear');
+await page.click('button:has-text("Take a break")');
+ok('focus countdown completion → dialog + break option');
+
 // 9. Add ad-hoc task via modal
 await page.click('text=Add ad-hoc task');
 await page.fill('input[placeholder*="Transformers"]', 'Review probability notes');
