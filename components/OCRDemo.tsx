@@ -88,23 +88,23 @@ const OCRDemo: React.FC<OCRDemoProps> = ({ onClose }) => {
     <div className="fixed inset-0 z-[60] overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
       <div className="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
         
-        <div className="fixed inset-0 bg-gray-900/75 transition-opacity" aria-hidden="true" onClick={onClose}></div>
+        <div className="fixed inset-0 bg-ink/70 backdrop-blur-sm transition-opacity animate-fade-in" aria-hidden="true" onClick={onClose}></div>
 
         <span className="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
 
-        <div className="relative z-10 inline-block align-bottom bg-white rounded-xl text-left overflow-hidden shadow-2xl transform transition-all sm:my-8 sm:align-middle sm:max-w-4xl sm:w-full">
+        <div className="relative z-10 inline-block align-bottom bg-white rounded-3xl text-left overflow-hidden shadow-[0_40px_100px_-24px_rgba(0,0,0,.55)] ring-1 ring-black/5 transform transition-all animate-scale-in sm:my-8 sm:align-middle sm:max-w-4xl sm:w-full">
           
           <div className="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
             <div className="flex justify-between items-center mb-6">
               <div className="flex items-center gap-3">
-                <div className="p-2 bg-indigo-100 rounded-lg">
+                <div className="p-2.5 bg-indigo-50 ring-1 ring-indigo-100 rounded-2xl">
                     <Wand2 className="h-6 w-6 text-indigo-600" />
                 </div>
                 <div>
-                    <h3 className="text-xl leading-6 font-bold text-gray-900" id="modal-title">
+                    <h3 className="font-display text-xl font-semibold tracking-[-0.03em] text-gray-950" id="modal-title">
                         Smart OCR & Analysis
                     </h3>
-                    <p className="text-sm text-gray-500 mt-1">Powered by Gemini 2.5 Flash</p>
+                    <p className="text-eyebrow text-gray-400 mt-1.5">Powered by Gemini 2.5 Flash</p>
                 </div>
               </div>
               <button onClick={onClose} className="text-gray-400 hover:text-gray-500 transition-colors">
@@ -114,11 +114,11 @@ const OCRDemo: React.FC<OCRDemoProps> = ({ onClose }) => {
 
             {/* Error Banner */}
             {error && (
-            <div className="bg-red-50 border-l-4 border-red-500 p-4 mb-6 rounded-r-md flex justify-between items-start">
+            <div className="bg-red-50 border-l-[3px] border-red-500 p-4 mb-6 rounded-r-xl flex justify-between items-start">
                 <div className="flex">
                     <AlertCircle className="h-5 w-5 text-red-500 mr-3 mt-0.5" />
                     <div>
-                        <p className="text-sm text-red-700">{error}</p>
+                        <p className="text-[0.875rem] leading-relaxed text-red-800">{error}</p>
                     </div>
                 </div>
                 <button onClick={() => setError(null)} className="text-red-400 hover:text-red-500">
@@ -131,7 +131,7 @@ const OCRDemo: React.FC<OCRDemoProps> = ({ onClose }) => {
               {/* Left Column: Upload */}
               <div className="flex flex-col h-full">
                 <label 
-                    className={`flex-1 flex flex-col items-center justify-center w-full min-h-75 border-2 border-dashed rounded-xl cursor-pointer transition-all duration-200
+                    className={`flex-1 flex flex-col items-center justify-center w-full min-h-75 border-2 border-dashed rounded-3xl cursor-pointer transition-all duration-200
                         ${isDragging 
                             ? 'border-indigo-500 bg-indigo-50 scale-[0.99]' 
                             : 'border-gray-300 hover:bg-indigo-50 hover:border-indigo-300 bg-gray-50'
@@ -153,8 +153,8 @@ const OCRDemo: React.FC<OCRDemoProps> = ({ onClose }) => {
                       <div className={`mb-4 w-16 h-16 rounded-full flex items-center justify-center transition-colors ${isDragging ? 'bg-indigo-100 text-indigo-600' : 'bg-gray-200 text-gray-400'}`}>
                           <Upload className="w-8 h-8" />
                       </div>
-                      <p className="mb-2 text-lg text-gray-700 font-medium">Click or drop to upload</p>
-                      <p className="text-sm text-gray-500">PNG, JPG or WEBP (Max 5MB)</p>
+                      <p className="mb-2 font-display text-[1.125rem] font-semibold tracking-[-0.025em] text-gray-800">Click or drop to upload</p>
+                      <p className="font-mono text-[11px] tracking-wide text-gray-400">PNG, JPG or WEBP · Max 5MB</p>
                     </div>
                   )}
                   <input 
@@ -169,10 +169,10 @@ const OCRDemo: React.FC<OCRDemoProps> = ({ onClose }) => {
                 <button
                   onClick={handleScan}
                   disabled={!file || loading}
-                  className={`mt-4 w-full py-3 px-4 rounded-xl text-white font-bold text-lg shadow-md transition-all flex items-center justify-center gap-2
+                  className={`mt-4 w-full py-3.5 px-4 rounded-2xl text-white font-display font-semibold tracking-tight text-[1.0625rem] shadow-md transition-all flex items-center justify-center gap-2
                     ${!file || loading 
                       ? 'bg-gray-300 cursor-not-allowed' 
-                      : 'bg-indigo-600 hover:bg-indigo-700 hover:shadow-lg hover:-translate-y-0.5 active:scale-95'
+                      : 'bg-indigo-600 hover:bg-indigo-500 hover:shadow-[0_14px_34px_-12px_rgba(79,70,229,.7)] hover:-translate-y-0.5 active:scale-95'
                     }`}
                 >
                   {loading ? (
@@ -190,28 +190,28 @@ const OCRDemo: React.FC<OCRDemoProps> = ({ onClose }) => {
               </div>
 
               {/* Right Column: Result */}
-              <div className="flex flex-col h-full bg-gray-50 rounded-xl border border-gray-200 overflow-hidden">
+              <div className="flex flex-col h-full bg-gray-50/70 rounded-3xl border border-gray-200/80 overflow-hidden">
                 <div className="px-4 py-3 border-b border-gray-200 bg-white flex justify-between items-center">
-                    <span className="font-semibold text-gray-700 flex items-center gap-2">
+                    <span className="text-eyebrow text-gray-400 flex items-center gap-2">
                         <FileText className="w-4 h-4" /> 
                         Extracted Content
                     </span>
                     {result && (
-                         <span className="text-xs font-mono text-green-600 bg-green-100 px-2 py-1 rounded">Analysis Complete</span>
+                         <span className="font-mono text-[10px] uppercase tracking-[0.14em] text-emerald-700 bg-emerald-50 ring-1 ring-emerald-100 px-2.5 py-1 rounded-full">Complete</span>
                     )}
                 </div>
                 <div className="flex-1 p-4 overflow-y-auto max-h-100 min-h-75">
                     {loading ? (
                         <div className="h-full flex flex-col items-center justify-center text-gray-400 space-y-4">
                             <div className="w-12 h-12 border-4 border-indigo-200 border-t-indigo-600 rounded-full animate-spin"></div>
-                            <p>Gemini is reading your document...</p>
+                            <p className="text-[0.875rem] text-gray-500">Gemini is reading your document…</p>
                         </div>
                     ) : result ? (
-                        <div className="prose prose-sm max-w-none text-gray-800 whitespace-pre-wrap">
+                        <div className="max-w-none text-[0.875rem] leading-[1.75] text-gray-800 whitespace-pre-wrap">
                             {result}
                         </div>
                     ) : (
-                        <div className="h-full flex items-center justify-center text-gray-400 text-sm">
+                        <div className="h-full flex items-center justify-center font-editorial italic text-[1.0625rem] text-gray-400">
                             Results will appear here
                         </div>
                     )}
