@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 1240" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+  <defs>
+    <linearGradient id="acc" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#6366f1"/>
+      <stop offset="1" stop-color="#8b5cf6"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="920" height="1240" rx="18" fill="#0b0c10"/>
+  <text x="46" y="52" fill="#e7e9f0" font-size="21" font-weight="700">The Daily Workflow</text>
+  <text x="46" y="76" fill="#9aa0ae" font-size="12.5">Mon–Sat · the schedule is a default, not a cage — drag, skip, or move anything except packing</text>
+
+  <!-- one block = 78px pitch -->
+  <g font-size="12.5">
+    <!-- row template drawn 12 times -->
+    <g transform="translate(0,0)">
+      <text x="150" y="126" fill="#9aa0ae" font-size="12" text-anchor="end" font-weight="600">07:00</text>
+      <rect x="176" y="104" width="700" height="46" rx="10" fill="#14161d" stroke="#262a35"/>
+      <circle cx="204" cy="127" r="4.5" fill="#94a3b8"/>
+      <text x="224" y="124" fill="#e7e9f0" font-weight="600">Wake up · morning routine</text>
+      <text x="224" y="141" fill="#7d8494" font-size="11">consistent wake time is the anchor of the whole system</text>
+    </g>
+    <g transform="translate(0,64)">
+      <text x="150" y="126" fill="#9aa0ae" font-size="12" text-anchor="end" font-weight="600">07:30</text>
+      <rect x="176" y="104" width="700" height="46" rx="10" fill="#161627" stroke="#818cf8"/>
+      <circle cx="204" cy="127" r="4.5" fill="#818cf8"/>
+      <text x="224" y="124" fill="#e7e9f0" font-weight="600">Deep Work 1 — AI/ML Roadmap · Learn</text>
+      <text x="224" y="141" fill="#7d8494" font-size="11">the hardest thing first · no applications, no social media</text>
+    </g>
+    <g transform="translate(0,128)">
+      <text x="150" y="126" fill="#9aa0ae" font-size="12" text-anchor="end" font-weight="600">10:00</text>
+      <rect x="176" y="104" width="700" height="46" rx="10" fill="#14161d" stroke="#262a35"/>
+      <circle cx="204" cy="127" r="4.5" fill="#fbbf24"/>
+      <text x="224" y="124" fill="#e7e9f0" font-weight="600">Build &amp; practice what you just learned</text>
+      <text x="224" y="141" fill="#7d8494" font-size="11">turn concepts into code while they're fresh</text>
+    </g>
+    <g transform="translate(0,192)">
+      <text x="150" y="126" fill="#9aa0ae" font-size="12" text-anchor="end" font-weight="600">11:00</text>
+      <rect x="176" y="104" width="700" height="46" rx="10" fill="#1b1410" stroke="#f97316"/>
+      <circle cx="204" cy="127" r="4.5" fill="#f97316"/>
+      <text x="224" y="124" fill="#e7e9f0" font-weight="600">PACKING — fixed responsibility</text>
+      <text x="224" y="141" fill="#7d8494" font-size="11">locked block · 6 days a week · nothing may replace it</text>
+    </g>
+    <g transform="translate(0,256)">
+      <text x="150" y="126" fill="#9aa0ae" font-size="12" text-anchor="end" font-weight="600">12:00</text>
+      <rect x="176" y="104" width="700" height="46" rx="10" fill="#14161d" stroke="#262a35"/>
+      <circle cx="204" cy="127" r="4.5" fill="#fb7185"/>
+      <text x="224" y="124" fill="#e7e9f0" font-weight="600">Revision — explain it without looking</text>
+      <text x="224" y="141" fill="#7d8494" font-size="11">the Feynman pass · if you can't explain it, you don't own it yet</text>
+    </g>
+    <g transform="translate(0,320)">
+      <text x="150" y="126" fill="#9aa0ae" font-size="12" text-anchor="end" font-weight="600">14:00</text>
+      <rect x="176" y="104" width="700" height="46" rx="10" fill="#14161d" stroke="#262a35"/>
+      <circle cx="204" cy="127" r="4.5" fill="#38bdf8"/>
+      <text x="224" y="124" fill="#e7e9f0" font-weight="600">AI/ML book — one meaningful topic</text>
+      <text x="224" y="141" fill="#7d8494" font-size="11">Sumatra PDF · log topic + “can I explain it?” in 30 seconds</text>
+    </g>
+    <g transform="translate(0,384)">
+      <text x="150" y="126" fill="#9aa0ae" font-size="12" text-anchor="end" font-weight="600">16:00</text>
+      <rect x="176" y="104" width="700" height="46" rx="10" fill="#14161d" stroke="#262a35"/>
+      <circle cx="204" cy="127" r="4.5" fill="#fbbf24"/>
+      <text x="224" y="124" fill="#e7e9f0" font-weight="600">Project / implementation</text>
+      <text x="224" y="141" fill="#7d8494" font-size="11">apply today's roadmap topic to a real artifact</text>
+    </g>
+    <g transform="translate(0,448)">
+      <text x="150" y="126" fill="#9aa0ae" font-size="12" text-anchor="end" font-weight="600">17:30</text>
+      <rect x="176" y="104" width="700" height="46" rx="10" fill="#14161d" stroke="#262a35"/>
+      <circle cx="204" cy="127" r="4.5" fill="#34d399"/>
+      <text x="224" y="124" fill="#e7e9f0" font-weight="600">LeetCode — exactly one problem (NeetCode 150)</text>
+      <text x="224" y="141" fill="#7d8494" font-size="11">log the main insight — that's your revision gold</text>
+    </g>
+    <g transform="translate(0,512)">
+      <text x="150" y="126" fill="#9aa0ae" font-size="12" text-anchor="end" font-weight="600">19:30</text>
+      <rect x="176" y="104" width="700" height="46" rx="10" fill="#161627" stroke="#a78bfa"/>
+      <circle cx="204" cy="127" r="4.5" fill="#a78bfa"/>
+      <text x="224" y="124" fill="#e7e9f0" font-weight="600">Job application block — focused, capped</text>
+      <text x="224" y="141" fill="#7d8494" font-size="11">quality &gt; quantity · a guardrail ends the block and hands the day back to you</text>
+    </g>
+    <g transform="translate(0,576)">
+      <text x="150" y="126" fill="#9aa0ae" font-size="12" text-anchor="end" font-weight="600">21:30</text>
+      <rect x="176" y="104" width="700" height="46" rx="10" fill="#14161d" stroke="#262a35"/>
+      <circle cx="204" cy="127" r="4.5" fill="#94a3b8"/>
+      <text x="224" y="124" fill="#e7e9f0" font-weight="600">Daily review · plan tomorrow</text>
+      <text x="224" y="141" fill="#7d8494" font-size="11">End My Day — score, three honest lines, close the laptop</text>
+    </g>
+    <g transform="translate(0,640)">
+      <text x="150" y="126" fill="#9aa0ae" font-size="12" text-anchor="end" font-weight="600">22:30</text>
+      <rect x="176" y="104" width="700" height="46" rx="10" fill="#101018" stroke="#3b3f8f"/>
+      <circle cx="204" cy="127" r="4.5" fill="url(#acc)"/>
+      <text x="224" y="124" fill="#e7e9f0" font-weight="600">Wind-down → lights out by 23:00</text>
+      <text x="224" y="141" fill="#7d8494" font-size="11">the late-night guardrail protects tomorrow's energy</text>
+    </g>
+  </g>
+
+  <!-- Sunday note -->
+  <g transform="translate(0,736)">
+    <rect x="176" y="104" width="700" height="118" rx="12" fill="#14161d" stroke="#262a35" stroke-dasharray="5 4"/>
+    <text x="204" y="134" fill="#e7e9f0" font-size="13.5" font-weight="700">Sunday — a different mode</text>
+    <text x="204" y="158" fill="#9aa0ae" font-size="12">Weekly review (score the week honestly) → light revision → plan next week's targets</text>
+    <text x="204" y="177" fill="#9aa0ae" font-size="12">The dashboard generates next week's schedule and spreads personal tasks across weekdays.</text>
+    <text x="204" y="196" fill="#9aa0ae" font-size="12">No application grind. Rest is part of the system.</text>
+  </g>
+</svg>

@@ -1,0 +1,115 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Theme tokens ─────────────────────────────────────────────────────────── */
+:root {
+  --c-bg: 10 10 14;
+  --c-panel: 17 18 23;
+  --c-panel2: 24 25 32;
+  --c-line: 35 37 45;
+  --c-ink: 235 237 244;
+  --c-mute: 150 154 168;
+  --c-faint: 98 102 114;
+  --c-ok: 52 211 153;
+  --c-warn: 245 158 11;
+  --c-danger: 244 63 94;
+  --c-acc: 99 102 241;
+  --c-acc2: 139 92 246;
+}
+
+.theme-light {
+  --c-bg: 247 248 250;
+  --c-panel: 255 255 255;
+  --c-panel2: 242 243 247;
+  --c-line: 226 229 235;
+  --c-ink: 24 27 34;
+  --c-mute: 99 105 118;
+  --c-faint: 148 153 164;
+  --c-ok: 5 150 105;
+  --c-warn: 217 119 6;
+  --c-danger: 225 29 72;
+}
+
+html {
+  font-size: 15px;
+}
+
+body {
+  @apply bg-bg text-ink font-sans antialiased;
+  font-feature-settings: 'cv11', 'ss01';
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  border-color: rgb(var(--c-line));
+}
+
+::selection {
+  background: rgb(var(--c-acc) / 0.35);
+}
+
+/* Subtle scrollbars */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: rgb(var(--c-faint) / 0.35);
+  border-radius: 8px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Visible, elegant focus states */
+:focus-visible {
+  outline: 2px solid rgb(var(--c-acc));
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+/* Numeric values stay aligned while ticking */
+.tnum {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Glass panel used by the top bar / overlays */
+.glass {
+  background: rgb(var(--c-bg) / 0.72);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+/* Soft hero glow — decorative only */
+.hero-glow {
+  background:
+    radial-gradient(600px 220px at 20% 0%, rgb(var(--c-acc) / 0.14), transparent 60%),
+    radial-gradient(500px 200px at 90% 10%, rgb(var(--c-acc2) / 0.1), transparent 55%);
+}
+
+.grad-text {
+  background: linear-gradient(92deg, rgb(var(--c-ink)), rgb(var(--c-mute)));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Range inputs (schedule editor) */
+input[type='time']::-webkit-calendar-picker-indicator {
+  filter: invert(0.6);
+  cursor: pointer;
+}
+
+/* Reduced motion: honor the OS preference everywhere */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
