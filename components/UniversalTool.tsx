@@ -328,11 +328,11 @@ const UniversalTool: React.FC<UniversalToolProps> = ({ toolId, onClose }) => {
         case 'rotate-pdf':
             return (
                 <div className="space-y-4">
-                    <label className="block text-sm font-medium text-gray-700">Rotation</label>
+                    <label className="block text-[0.8125rem] font-semibold tracking-[-0.01em] text-gray-700">Rotation</label>
                     <div className="flex gap-2">
-                        <button onClick={() => setRotation(90)} className={`flex-1 py-2 rounded-lg border ${rotation === 90 ? 'bg-red-50 border-red-500 text-red-700' : 'bg-white border-gray-300'}`}>90°</button>
-                        <button onClick={() => setRotation(180)} className={`flex-1 py-2 rounded-lg border ${rotation === 180 ? 'bg-red-50 border-red-500 text-red-700' : 'bg-white border-gray-300'}`}>180°</button>
-                        <button onClick={() => setRotation(270)} className={`flex-1 py-2 rounded-lg border ${rotation === 270 ? 'bg-red-50 border-red-500 text-red-700' : 'bg-white border-gray-300'}`}>270°</button>
+                        <button onClick={() => setRotation(90)} className={`flex-1 py-2.5 rounded-xl border text-[0.875rem] font-medium text-numeric transition-colors ${rotation === 90 ? 'bg-red-50 border-red-500 text-red-700' : 'bg-white border-gray-200 text-gray-600 hover:border-gray-300'}`}>90°</button>
+                        <button onClick={() => setRotation(180)} className={`flex-1 py-2.5 rounded-xl border text-[0.875rem] font-medium text-numeric transition-colors ${rotation === 180 ? 'bg-red-50 border-red-500 text-red-700' : 'bg-white border-gray-200 text-gray-600 hover:border-gray-300'}`}>180°</button>
+                        <button onClick={() => setRotation(270)} className={`flex-1 py-2.5 rounded-xl border text-[0.875rem] font-medium text-numeric transition-colors ${rotation === 270 ? 'bg-red-50 border-red-500 text-red-700' : 'bg-white border-gray-200 text-gray-600 hover:border-gray-300'}`}>270°</button>
                     </div>
                 </div>
             );
@@ -340,14 +340,14 @@ const UniversalTool: React.FC<UniversalToolProps> = ({ toolId, onClose }) => {
         case 'unlock-pdf':
             return (
                 <div className="space-y-4">
-                    <label className="block text-sm font-medium text-gray-700">
+                    <label className="block text-[0.8125rem] font-semibold tracking-[-0.01em] text-gray-700">
                         {toolId === 'protect-pdf' ? 'Set Password' : 'Enter Password'}
                     </label>
-                    <div className="flex items-center border border-gray-300 rounded-lg bg-white px-3 py-2">
+                    <div className="flex items-center border border-gray-200 rounded-xl bg-white px-3.5 py-2.5 transition-colors focus-within:border-red-400 focus-within:ring-2 focus-within:ring-red-100">
                         {toolId === 'protect-pdf' ? <Lock className="w-4 h-4 text-gray-400 mr-2" /> : <Unlock className="w-4 h-4 text-gray-400 mr-2" />}
                         <input 
                             type="password" 
-                            className="flex-1 outline-none text-sm"
+                            className="flex-1 outline-none text-[0.875rem] placeholder:text-gray-400"
                             placeholder="Type password..."
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
@@ -358,12 +358,12 @@ const UniversalTool: React.FC<UniversalToolProps> = ({ toolId, onClose }) => {
         case 'watermark':
             return (
                 <div className="space-y-4">
-                    <label className="block text-sm font-medium text-gray-700">Watermark Text</label>
-                    <div className="flex items-center border border-gray-300 rounded-lg bg-white px-3 py-2">
+                    <label className="block text-[0.8125rem] font-semibold tracking-[-0.01em] text-gray-700">Watermark Text</label>
+                    <div className="flex items-center border border-gray-200 rounded-xl bg-white px-3.5 py-2.5 transition-colors focus-within:border-red-400 focus-within:ring-2 focus-within:ring-red-100">
                         <Type className="w-4 h-4 text-gray-400 mr-2" />
                         <input 
                             type="text" 
-                            className="flex-1 outline-none text-sm"
+                            className="flex-1 outline-none text-[0.875rem] placeholder:text-gray-400"
                             value={watermarkText}
                             onChange={(e) => setWatermarkText(e.target.value)}
                         />
@@ -373,26 +373,26 @@ const UniversalTool: React.FC<UniversalToolProps> = ({ toolId, onClose }) => {
         case 'sign-pdf':
             return (
                 <div className="space-y-4">
-                    <label className="block text-sm font-medium text-gray-700">Signature Name</label>
-                    <div className="flex items-center border border-gray-300 rounded-lg bg-white px-3 py-2">
+                    <label className="block text-[0.8125rem] font-semibold tracking-[-0.01em] text-gray-700">Signature Name</label>
+                    <div className="flex items-center border border-gray-200 rounded-xl bg-white px-3.5 py-2.5 transition-colors focus-within:border-red-400 focus-within:ring-2 focus-within:ring-red-100">
                         <PenTool className="w-4 h-4 text-gray-400 mr-2" />
                         <input 
                             type="text" 
-                            className="flex-1 outline-none text-sm"
+                            className="flex-1 outline-none text-[0.875rem] placeholder:text-gray-400"
                             placeholder="Your full name..."
                             value={signatureText}
                             onChange={(e) => setSignatureText(e.target.value)}
                         />
                     </div>
-                    <p className="text-xs text-gray-400">Signature will be added to the last page.</p>
+                    <p className="font-mono text-[11px] tracking-wide text-gray-400">Signature will be added to the last page.</p>
                 </div>
             );
         case 'edit-pdf':
             return (
                 <div className="space-y-4">
-                    <label className="block text-sm font-medium text-gray-700">Text to Add</label>
+                    <label className="block text-[0.8125rem] font-semibold tracking-[-0.01em] text-gray-700">Text to Add</label>
                     <textarea
-                        className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm outline-none resize-none"
+                        className="w-full border border-gray-200 rounded-xl px-3.5 py-2.5 text-[0.875rem] outline-none resize-none transition-colors focus:border-red-400 focus:ring-2 focus:ring-red-100 placeholder:text-gray-400"
                         rows={3}
                         placeholder="Enter text to add to the first page..."
                         value={editText}
@@ -403,57 +403,57 @@ const UniversalTool: React.FC<UniversalToolProps> = ({ toolId, onClose }) => {
         case 'html-to-pdf':
             return (
                 <div className="space-y-4">
-                    <label className="block text-sm font-medium text-gray-700">HTML Content</label>
+                    <label className="block text-[0.8125rem] font-semibold tracking-[-0.01em] text-gray-700">HTML Content</label>
                     <textarea
-                        className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm outline-none resize-none font-mono"
+                        className="w-full border border-gray-200 rounded-xl px-3.5 py-2.5 text-[0.8125rem] font-mono outline-none resize-none transition-colors focus:border-red-400 focus:ring-2 focus:ring-red-100 placeholder:text-gray-400"
                         rows={4}
                         placeholder="Paste HTML content here, or upload an HTML file..."
                         value={htmlUrl}
                         onChange={(e) => setHtmlUrl(e.target.value)}
                     />
-                    <p className="text-xs text-gray-400">You can also upload an .html file instead.</p>
+                    <p className="font-mono text-[11px] tracking-wide text-gray-400">You can also upload an .html file instead.</p>
                 </div>
             );
         case 'split-pdf':
              return (
-                 <div className="p-4 bg-yellow-50 rounded-lg text-sm text-yellow-800 border border-yellow-100">
-                     <p className="font-semibold flex items-center gap-2"><Scissors className="w-4 h-4"/> Extract Mode</p>
-                     <p className="mt-1">This tool will extract every page into a separate PDF file and download them.</p>
+                 <div className="p-4 bg-amber-50 rounded-2xl text-[0.8125rem] text-amber-900 border border-amber-100">
+                     <p className="font-display font-semibold tracking-[-0.015em] flex items-center gap-2"><Scissors className="w-4 h-4"/> Extract Mode</p>
+                     <p className="mt-1.5 leading-relaxed opacity-90">This tool will extract every page into a separate PDF file and download them.</p>
                  </div>
              );
         case 'compare-pdf':
             return (
                 <div className="space-y-4">
-                    <div className="p-4 bg-blue-50 rounded-lg text-sm text-blue-800 border border-blue-100">
-                        <p className="font-semibold">Upload 2 or more PDFs</p>
-                        <p className="mt-1">A comparison report will be generated.</p>
+                    <div className="p-4 bg-blue-50 rounded-2xl text-[0.8125rem] text-blue-900 border border-blue-100">
+                        <p className="font-display font-semibold tracking-[-0.015em]">Upload 2 or more PDFs</p>
+                        <p className="mt-1.5 leading-relaxed opacity-90">A comparison report will be generated.</p>
                     </div>
                     {compareResult && (
-                        <pre className="p-3 bg-gray-50 rounded-lg text-xs font-mono whitespace-pre-wrap border border-gray-200 max-h-40 overflow-y-auto">{compareResult}</pre>
+                        <pre className="p-3.5 bg-gray-50 rounded-xl text-[11px] leading-relaxed font-mono whitespace-pre-wrap border border-gray-200 max-h-40 overflow-y-auto">{compareResult}</pre>
                     )}
                 </div>
             );
         case 'redact-pdf':
             return (
-                <div className="p-4 bg-orange-50 rounded-lg text-sm text-orange-800 border border-orange-100">
-                    <p className="font-semibold">Full Page Redaction</p>
-                    <p className="mt-1">This will overlay all pages with a white cover and mark them as REDACTED.</p>
+                <div className="p-4 bg-orange-50 rounded-2xl text-[0.8125rem] text-orange-900 border border-orange-100">
+                    <p className="font-display font-semibold tracking-[-0.015em]">Full Page Redaction</p>
+                    <p className="mt-1.5 leading-relaxed opacity-90">This will overlay all pages with a white cover and mark them as REDACTED.</p>
                 </div>
             );
         case 'crop-pdf':
             return (
-                <div className="p-4 bg-purple-50 rounded-lg text-sm text-purple-800 border border-purple-100">
-                    <p className="font-semibold">Auto Crop</p>
-                    <p className="mt-1">Removes 10% margins from all edges of each page.</p>
+                <div className="p-4 bg-violet-50 rounded-2xl text-[0.8125rem] text-violet-900 border border-violet-100">
+                    <p className="font-display font-semibold tracking-[-0.015em]">Auto Crop</p>
+                    <p className="mt-1.5 leading-relaxed opacity-90">Removes 10% margins from all edges of each page.</p>
                 </div>
             );
         case 'pdf-to-word':
         case 'pdf-to-powerpoint':
         case 'pdf-to-excel':
             return (
-                <div className="p-4 bg-blue-50 rounded-lg text-sm text-blue-800 border border-blue-100">
-                    <p className="font-semibold">Page Extraction</p>
-                    <p className="mt-1">Each page will be extracted as a separate PDF. For full format conversion, consider using online services like:</p>
+                <div className="p-4 bg-blue-50 rounded-2xl text-[0.8125rem] text-blue-900 border border-blue-100">
+                    <p className="font-display font-semibold tracking-[-0.015em]">Page Extraction</p>
+                    <p className="mt-1.5 leading-relaxed opacity-90">Each page will be extracted as a separate PDF. For full format conversion, consider using online services like:</p>
                     <ul className="mt-2 space-y-1 text-xs">
                         <li>• <a href="https://smallpdf.com" target="_blank" rel="noopener noreferrer" className="underline">SmallPDF</a></li>
                         <li>• <a href="https://www.ilovepdf.com" target="_blank" rel="noopener noreferrer" className="underline">iLovePDF</a></li>
@@ -468,33 +468,33 @@ const UniversalTool: React.FC<UniversalToolProps> = ({ toolId, onClose }) => {
   return (
     <div className="fixed inset-0 z-[60] overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
       <div className="flex items-center justify-center min-h-screen px-4 pb-20 text-center sm:p-0">
-        <div className="fixed inset-0 bg-gray-900/75 transition-opacity" onClick={onClose} />
+        <div className="fixed inset-0 bg-ink/70 backdrop-blur-sm transition-opacity animate-fade-in" onClick={onClose} />
 
-        <div className="relative z-10 bg-white rounded-xl text-left overflow-hidden shadow-2xl transform transition-all sm:my-8 sm:max-w-5xl sm:w-full sm:mx-auto h-[85vh] flex flex-col">
+        <div className="relative z-10 bg-white rounded-3xl text-left overflow-hidden shadow-[0_40px_100px_-24px_rgba(0,0,0,.55)] ring-1 ring-black/5 transform transition-all animate-scale-in sm:my-8 sm:max-w-5xl sm:w-full sm:mx-auto h-[85vh] flex flex-col">
           
           {/* Header */}
-          <div className="bg-white px-6 py-4 border-b border-gray-200 flex justify-between items-center shrink-0">
+          <div className="bg-white px-6 py-5 border-b border-gray-200/80 flex justify-between items-center shrink-0">
             <div className="flex items-center gap-3">
-              <div className="p-2 bg-red-100 rounded-lg">
+              <div className="p-2.5 bg-red-50 ring-1 ring-red-100 rounded-2xl">
                 {toolConfig?.icon ? <toolConfig.icon className="h-6 w-6 text-red-600" /> : <Files className="h-6 w-6 text-red-600" />}
               </div>
               <div>
-                <h3 className="text-xl font-bold text-gray-900">{toolConfig?.title || 'PDF Tool'}</h3>
-                <p className="text-sm text-gray-500">{toolConfig?.description || 'Process your PDF files'}</p>
+                <h3 className="font-display text-xl font-semibold tracking-[-0.03em] text-gray-950">{toolConfig?.title || 'PDF Tool'}</h3>
+                <p className="text-[0.8125rem] leading-snug text-gray-500 mt-0.5 max-w-md">{toolConfig?.description || 'Process your PDF files'}</p>
               </div>
             </div>
-            <button onClick={onClose} className="text-gray-400 hover:text-gray-500">
+            <button onClick={onClose} aria-label="Close" className="p-2 -mr-2 rounded-xl text-gray-400 hover:text-gray-700 hover:bg-gray-100 transition-colors">
               <X className="h-6 w-6" />
             </button>
           </div>
           
           {/* Error Banner */}
           {error && (
-            <div className="bg-red-50 border-l-4 border-red-500 p-4 m-6 mb-0 rounded-r-md flex justify-between items-start animate-fade-in">
+            <div className="bg-red-50 border-l-[3px] border-red-500 p-4 m-6 mb-0 rounded-r-xl flex justify-between items-start animate-fade-in">
                 <div className="flex">
                     <AlertCircle className="h-5 w-5 text-red-500 mr-3 mt-0.5" />
                     <div>
-                        <p className="text-sm text-red-700">{error}</p>
+                        <p className="text-[0.875rem] leading-relaxed text-red-800">{error}</p>
                     </div>
                 </div>
                 <button onClick={() => setError(null)} className="text-red-400 hover:text-red-500">
@@ -505,11 +505,11 @@ const UniversalTool: React.FC<UniversalToolProps> = ({ toolId, onClose }) => {
 
           {/* Success Banner */}
           {successMessage && !error && (
-            <div className="bg-green-50 border-l-4 border-green-500 p-4 m-6 mb-0 rounded-r-md flex justify-between items-start">
+            <div className="bg-emerald-50 border-l-[3px] border-emerald-500 p-4 m-6 mb-0 rounded-r-xl flex justify-between items-start">
                 <div className="flex">
                     <CheckCircle2 className="h-5 w-5 text-green-500 mr-3 mt-0.5" />
                     <div>
-                        <p className="text-sm text-green-700">{successMessage}</p>
+                        <p className="text-[0.875rem] leading-relaxed text-emerald-800">{successMessage}</p>
                     </div>
                 </div>
                 <button onClick={() => setSuccessMessage(null)} className="text-green-400 hover:text-green-500">
@@ -525,7 +525,7 @@ const UniversalTool: React.FC<UniversalToolProps> = ({ toolId, onClose }) => {
             <div className="flex-1 p-6 overflow-y-auto">
               {files.length === 0 ? (
                 <div 
-                  className={`h-full border-2 border-dashed rounded-2xl flex flex-col items-center justify-center transition-all duration-200 
+                  className={`h-full border-2 border-dashed rounded-3xl flex flex-col items-center justify-center transition-all duration-200 
                     ${isDragging 
                         ? 'border-red-500 bg-red-50 scale-[0.99]' 
                         : 'border-gray-300 hover:border-red-400 hover:bg-white bg-gray-50/50'
@@ -538,19 +538,19 @@ const UniversalTool: React.FC<UniversalToolProps> = ({ toolId, onClose }) => {
                     <div className={`mx-auto mb-4 w-20 h-20 rounded-full flex items-center justify-center transition-colors ${isDragging ? 'bg-red-100 text-red-600' : 'bg-gray-100 text-gray-400'}`}>
                         <Upload className="w-10 h-10" strokeWidth={1.5} />
                     </div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">
+                    <h3 className="font-display text-[1.375rem] font-semibold tracking-[-0.03em] text-gray-950 mb-2">
                         {isDragging ? 'Drop files now' : 'Drag & drop files here'}
                     </h3>
-                    <p className="text-gray-500 mb-6 max-w-xs mx-auto">
+                    <p className="text-[0.9375rem] text-gray-500 mb-7 max-w-xs mx-auto leading-relaxed">
                         Upload {acceptConfig.label}
                     </p>
                     <button 
                       onClick={() => fileInputRef.current?.click()}
-                      className="pointer-events-auto px-8 py-3 bg-red-600 text-white font-bold rounded-xl hover:bg-red-700 transition-all shadow-lg shadow-red-200 hover:shadow-red-300 hover:-translate-y-0.5"
+                      className="pointer-events-auto px-8 py-3.5 bg-red-600 text-white font-display font-semibold tracking-tight rounded-2xl hover:bg-red-500 transition-all shadow-[0_12px_30px_-10px_rgba(220,38,38,.65)] hover:-translate-y-0.5"
                     >
                       Select Files
                     </button>
-                    <p className="mt-4 text-xs text-gray-400">
+                    <p className="mt-5 font-mono text-[11px] tracking-wide text-gray-400">
                         Max file size: 50MB
                     </p>
                   </div>
@@ -558,13 +558,13 @@ const UniversalTool: React.FC<UniversalToolProps> = ({ toolId, onClose }) => {
               ) : (
                 <div className="space-y-3">
                   <div className="flex justify-between items-center mb-4 px-1">
-                    <h4 className="font-semibold text-gray-700 flex items-center gap-2">
+                    <h4 className="font-display text-[0.9375rem] font-semibold tracking-[-0.02em] text-gray-800 flex items-center gap-2">
                         <Files className="w-4 h-4 text-gray-400"/>
                         Selected Files ({files.length})
                     </h4>
                     <button 
                         onClick={() => setFiles([])} 
-                        className="text-xs font-medium text-red-500 hover:text-red-700 hover:bg-red-50 px-2 py-1 rounded transition-colors"
+                        className="text-eyebrow text-red-500 hover:text-red-700 hover:bg-red-50 px-2.5 py-1.5 rounded-lg transition-colors"
                     >
                         Clear All
                     </button>
@@ -572,7 +572,7 @@ const UniversalTool: React.FC<UniversalToolProps> = ({ toolId, onClose }) => {
                   
                   <div className="grid gap-3">
                     {files.map((file, index) => (
-                        <div key={`${file.name}-${index}`} className="bg-white p-3 rounded-xl shadow-sm border border-gray-100 flex items-center gap-4 group hover:shadow-md transition-all">
+                        <div key={`${file.name}-${index}`} className="bg-white p-3.5 rounded-2xl border border-gray-200/70 flex items-center gap-4 group hover:border-gray-300 hover:shadow-[0_12px_28px_-16px_rgba(16,16,20,.28)] transition-all">
                         <div className="w-10 h-10 bg-red-50 rounded-lg flex items-center justify-center shrink-0">
                             {toolId === 'jpg-to-pdf' ? (
                                 <img src={URL.createObjectURL(file)} alt="preview" className="w-full h-full object-cover rounded-lg" />
@@ -582,8 +582,8 @@ const UniversalTool: React.FC<UniversalToolProps> = ({ toolId, onClose }) => {
                         </div>
                         
                         <div className="flex-1 min-w-0">
-                            <p className="text-sm font-medium text-gray-900 truncate">{file.name}</p>
-                            <p className="text-xs text-gray-500">{(file.size / 1024 / 1024).toFixed(2)} MB</p>
+                            <p className="text-[0.875rem] font-medium tracking-[-0.01em] text-gray-900 truncate">{file.name}</p>
+                            <p className="font-mono text-[11px] text-numeric text-gray-400 mt-0.5">{(file.size / 1024 / 1024).toFixed(2)} MB</p>
                         </div>
 
                         <button 
@@ -598,7 +598,7 @@ const UniversalTool: React.FC<UniversalToolProps> = ({ toolId, onClose }) => {
 
                    <button 
                       onClick={() => fileInputRef.current?.click()}
-                      className="w-full py-4 mt-2 border-2 border-dashed border-gray-300 rounded-xl text-gray-500 text-sm hover:border-red-400 hover:text-red-500 hover:bg-white transition-all flex items-center justify-center gap-2"
+                      className="w-full py-4 mt-2 border-2 border-dashed border-gray-200 rounded-2xl text-gray-500 text-[0.875rem] font-medium hover:border-red-300 hover:text-red-600 hover:bg-red-50/40 transition-all flex items-center justify-center gap-2"
                     >
                       <Upload className="w-4 h-4" /> Add more files
                     </button>
@@ -620,17 +620,17 @@ const UniversalTool: React.FC<UniversalToolProps> = ({ toolId, onClose }) => {
                 
                 {/* Dynamic Settings Section */}
                 <div className="mb-6">
-                    <h4 className="font-bold text-gray-900 mb-4 flex items-center gap-2">
-                        <Settings className="w-4 h-4" /> Tool Options
+                    <h4 className="text-eyebrow text-gray-400 mb-4 flex items-center gap-2">
+                        <Settings className="w-3.5 h-3.5" /> Tool Options
                     </h4>
-                    {renderSettings() || <p className="text-sm text-gray-400 italic bg-gray-50 p-3 rounded-lg border border-gray-100">No additional options for this tool.</p>}
+                    {renderSettings() || <p className="font-editorial italic text-[0.9375rem] text-gray-400 bg-gray-50 p-3.5 rounded-xl border border-gray-100">No additional options for this tool.</p>}
                 </div>
 
                 <div className="mt-auto pt-6 border-t border-gray-100">
                     <button
                     onClick={processFiles}
                     disabled={processing}
-                    className="w-full py-4 bg-red-600 hover:bg-red-700 disabled:bg-gray-300 disabled:cursor-not-allowed text-white rounded-xl font-bold text-lg shadow-lg shadow-red-100 flex items-center justify-center gap-2 transition-all transform active:scale-95"
+                    className="w-full py-4 bg-red-600 hover:bg-red-500 disabled:bg-gray-300 disabled:cursor-not-allowed text-white rounded-2xl font-display font-semibold tracking-tight text-[1.0625rem] shadow-[0_14px_34px_-12px_rgba(220,38,38,.6)] flex items-center justify-center gap-2 transition-all transform active:scale-95"
                     >
                     {processing ? (
                         <>
@@ -648,7 +648,7 @@ const UniversalTool: React.FC<UniversalToolProps> = ({ toolId, onClose }) => {
                             <div className="w-full bg-gray-200 rounded-full h-2.5 overflow-hidden">
                                 <div className="bg-red-600 h-2.5 rounded-full transition-all duration-300" style={{ width: `${progress}%` }}></div>
                             </div>
-                            <p className="text-xs text-center text-gray-500 mt-2">Processing your documents...</p>
+                            <p className="text-eyebrow text-center text-gray-400 mt-3">Processing your documents</p>
                         </div>
                     )}
                 </div>
