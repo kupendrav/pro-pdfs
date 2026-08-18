@@ -1,0 +1,6 @@
+interface:
+  display_name: "Pro Pdfs"
+  short_description: "Repo-specific patterns and workflows for pro-pdfs"
+  default_prompt: "Use the pro-pdfs repo skill to follow existing architecture, testing, and workflow conventions."
+policy:
+  allow_implicit_invocation: true
